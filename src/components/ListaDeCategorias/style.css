@@ -1,0 +1,27 @@
+.lista-categorias {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.lista-categorias input {
+  width: 200px;
+  max-width: 100%;
+}
+
+.lista-categorias_lista {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.lista-categorias_item {
+  list-style: none;
+  font-size: 16px;
+  background: var(--secondary);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
