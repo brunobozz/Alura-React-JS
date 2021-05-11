@@ -12,6 +12,7 @@ export class ListaDeNotas extends Component {
               <CardNota
                 indice={index}
                 deletarNota={this.props.deletarNota}
+                categoria={nota.categoria}
                 titulo={nota.titulo}
                 texto={nota.texto}
               />

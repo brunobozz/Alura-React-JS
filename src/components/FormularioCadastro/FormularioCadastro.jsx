@@ -4,8 +4,14 @@ import "./style.css";
 export class FormularioCadastro extends Component {
   constructor(props) {
     super(props);
+    this.categoria = "Sem Categoria";
     this.titulo = "";
     this.texto = "";
+  }
+
+  _handleMudancaCategoria(evento) {
+    evento.stopPropagation();
+    this.categoria = evento.target.value;
   }
 
   _handleMudancaTitulo(evento) {
@@ -21,7 +27,7 @@ export class FormularioCadastro extends Component {
   _criarNota(evento) {
     evento.preventDefault();
     evento.stopPropagation();
-    this.props.criarNota(this.titulo, this.texto);
+    this.props.criarNota(this.categoria, this.titulo, this.texto);
   }
 
   render() {
@@ -31,6 +37,12 @@ export class FormularioCadastro extends Component {
         className="formulario-cadastro"
       >
         <h1>Cadastro de Notas</h1>
+        <select onChange={this._handleMudancaCategoria.bind(this)}>
+          <option>Sem Categoria</option>
+          {this.props.categorias.map((categoria) => {
+            return <option value={categoria}>{categoria}</option>;
+          })}
+        </select>
         <input
           type="text"
           placeholder="Título"
