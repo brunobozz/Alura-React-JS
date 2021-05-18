@@ -4,30 +4,32 @@ export default class ArrayDeNotas {
     this._inscritos = [];
   }
 
-  adicionarNota(titulo, texto, categoria) {
-    const novaNota = new Nota(titulo, texto, categoria);
+  criarNota(categoria, titulo, texto) {
+    const novaNota = new Nota(categoria, titulo, texto);
     this.notas.push(novaNota);
+    this.notificar();
   }
 
   deletarNotas(indice) {
     this.notas.splice(indice, 1);
+    this.notificar();
   }
 
-  inscever(func) {
+  inscrever(func) {
     this._inscritos.push(func);
   }
 
-  notifica() {
+  notificar() {
     this._inscritos.forEach((func) => {
-      func(this.categorias);
+      func(this.notas);
     });
   }
 }
 
 class Nota {
-  constructor(titulo, texto, categoria) {
+  constructor(categoria, titulo, texto) {
+    this.categoria = categoria;
     this.titulo = titulo;
     this.texto = texto;
-    this.categoria = categoria;
   }
 }

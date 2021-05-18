@@ -52,6 +52,7 @@ textarea {
   border: 1px solid var(--primary);
   font-size: 14px;
   margin: 10px 0;
+  cursor: pointer;
 }
 
 .btn-primary {
